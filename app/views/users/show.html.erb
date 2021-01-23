@@ -1,0 +1,97 @@
+<div class="container">
+  <% if flash[:notice] %>
+    <div class="alert alert-danger"><%= flash[:notice] %></div>
+  <% end %>
+
+  <% if @user.followed_by?(@current_user) || @user.id == @current_user.id %>
+    <div class="usershow clearfix">
+      <h3><%= @user.name %></h3>
+  
+      <% if @current_user != @user %>
+        <% if @user.followed_by?(@current_user) %>
+          <div class="float-right">
+            <%= link_to "フォロー解除", user_relationships_path(@user.id), class: 'btn btn-danger', method: :delete, data: { confirm: 'フォロー解除してもよろしいですか？' }, remote: true %>
+          </div>
+        <% else %>
+          <div class="float-right">
+            <%= link_to "フォローする", user_relationships_path(@user.id), class: 'btn btn-info', method: :post, remote: true %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    
+    <h4>お知らせ一覧</h4>
+    <table class="table">
+      <tr>
+        <th>タイトル</th>
+        <th>作成日時</th>
+        <th>更新日時</th>
+      </tr>
+
+      <% @boards.each do |board| %>
+        <tr>
+          <td><%= link_to board.title, board %></td>
+          <td><%= board.created_at.to_s(:datetime_jp) %></td>
+          <td><%= board.updated_at.to_s(:datetime_jp) %></td>
+        </tr>
+      <% end %>
+    </table>
+
+    <%= paginate @boards %>
+
+  <% elsif @user.private == true %>
+
+    <div class="usershow clearfix">
+      <h3><%= @user.name %></h3>
+      <p>このユーザーは非公開です。フォローリクエストを送りましょう。</p>
+      
+      <% if @current_user != @user %>
+        <% if @user.requested_by?(@current_user) %>
+          <div class="float-right">
+            <%= link_to "リクエスト取消", user_requests_path(@user.id), class: 'btn btn-danger', method: :delete, data: { confirm: 'リクエストを取り消してもよろしいですか？' }, remote: true %>
+          </div>
+        <% else %>
+          <div class="float-right">
+            <%= link_to "リクエスト送信", user_requests_path(@user.id), class: 'btn btn-info', method: :post, remote: true %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  
+  <% else %>
+    <div class="usershow clearfix">
+      <h3><%= @user.name %></h3>
+
+      <% if @current_user != @user %>
+        <% if @user.followed_by?(@current_user) %>
+          <div class="float-right">
+            <%=link_to "フォロー解除", user_relationships_path(@user.id), class: 'btn btn-danger', method: :delete, data: { confirm: 'フォロー解除してもよろしいですか？' }, remote: true %>
+          </div>
+        <% else %>
+          <div class="float-right">
+            <%=link_to "フォローする", user_relationships_path(@user.id), class: 'btn btn-info', method: :post, remote: true %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <h4>お知らせ一覧</h4>
+    <table class="table">
+      <tr>
+        <th>タイトル</th>
+        <th>作成日時</th>
+        <th>更新日時</th>
+      </tr>
+
+      <% @boards.each do |board| %>
+        <tr>
+          <td><%= link_to board.title, board %></td>
+          <td><%= board.created_at.to_s(:datetime_jp) %></td>
+          <td><%= board.updated_at.to_s(:datetime_jp) %></td>
+        </tr>
+      <% end %>
+    </table>
+
+    <%= paginate @boards %>
+  <% end %>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+  <% if flash[:notice] %>
+    <div class="alert alert-primary"><%= flash[:notice] %></div>
+  <% end %>
+
+  <h3>マイページ</h3>
+
+  <div class="userlinks clearfix">
+    <h4><%= @current_user.name %></h4>
+  
+    <div class="float-right">
+      <%= link_to 'フォロー', follows_user_path(@current_user.id), class: 'btn btn-outline-dark' %>
+      <%= link_to 'フォロワー', followers_user_path(@current_user.id), class: 'btn btn-outline-dark' %>
+
+      <% if @current_user.private == true %>
+        <%= link_to 'フォローリクエスト一覧', user_requests_path(@current_user.id), class: 'btn btn-outline-dark' %>
+      <% end %>
+
+      <%= link_to '編集', edit_user_path(@current_user), class: 'btn btn-outline-dark' %>
+    </div>
+  </div>
+
+  <h5>お知らせ一覧</h5>
+  <table class="table">
+    <tr>
+      <th>タイトル</th>
+      <th>作成日時</th>
+      <th>更新日時</th>
+    </tr>
+    <% @boards.each do |board| %>
+    <tr>
+      <td><%= link_to board.title, board %></td>
+      <td><%= board.created_at.to_s(:datetime_jp) %></td>
+      <td><%= board.updated_at.to_s(:datetime_jp) %></td>
+    </tr>
+    <% end %>
+  </table>
+
+  <%= paginate @boards %>
+</div>
