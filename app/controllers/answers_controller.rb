@@ -6,7 +6,7 @@ class AnswersController < ApplicationController
     follow.save
     redirect_to user_requests_path(@current_user)
   end
-  
+
   def destroy
     request = @current_user.passive_requests.find_by(refollowing_id: params[:user_id])
     request.destroy

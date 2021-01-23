@@ -19,7 +19,7 @@ class RequestsController < ApplicationController
   end
 
   private
-  
+
   def set_target_user
     @user = User.find(params[:user_id])
   end

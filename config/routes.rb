@@ -5,17 +5,17 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  
+
   resources :users do
-    resource :relationships, only: [:create, :destroy]
+    resource :relationships, only: %i[create destroy]
     get :follows, on: :member
     get :followers, on: :member
 
-    resource :requests, only: [:show, :create, :destroy]
-    resource :answers, only: [:create, :destroy]
+    resource :requests, only: %i[show create destroy]
+    resource :answers, only: %i[create destroy]
   end
 
   resources :boards do
-    resource :joins, only: [:show, :create, :destroy]
+    resource :joins, only: %i[show create destroy]
   end
 end

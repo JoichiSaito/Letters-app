@@ -24,18 +24,17 @@ class UsersController < ApplicationController
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true).page(params[:page])
   end
-  
+
   def show
     @board = Board.where(user_id: @user.id).order('id DESC')
     @boards = @board.page(params[:page])
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update(user_params)
-      flash[:notice] = "ユーザー情報を更新しました"
+      flash[:notice] = 'ユーザー情報を更新しました'
       redirect_to mypage_path
     else
       redirect_to edit_user_path, flash: {
@@ -59,11 +58,11 @@ class UsersController < ApplicationController
   end
 
   private
-  
+
   def ensure_correct_user
-    @user = User.find_by(id:params[:id])
+    @user = User.find_by(id: params[:id])
     if @user.id != @current_user.id
-      flash[:notice] = "権限がありません"
+      flash[:notice] = '権限がありません'
       redirect_to root_path
     end
   end

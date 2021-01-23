@@ -21,21 +21,19 @@ class BoardsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @board.update(board_params)
-        flash[:notice] = 'お知らせを更新しました'
-        redirect_to @board
-      else
-        redirect_to board_path, flash: {
-          board: @board,
-          error_messages: @board.errors.full_messages
-        }
+      flash[:notice] = 'お知らせを更新しました'
+      redirect_to @board
+    else
+      redirect_to board_path, flash: {
+        board: @board,
+        error_messages: @board.errors.full_messages
+      }
     end
   end
 
@@ -46,11 +44,11 @@ class BoardsController < ApplicationController
   end
 
   private
-  
+
   def ensure_correct_user
-    @board = Board.find_by(id:params[:id])
+    @board = Board.find_by(id: params[:id])
     if @board.user_id != @current_user.id
-      flash[:notice] = "権限がありません"
+      flash[:notice] = '権限がありません'
       redirect_to root_path
     end
   end
@@ -60,6 +58,6 @@ class BoardsController < ApplicationController
   end
 
   def board_params
-    params.require(:board).permit(:user_id, :title, :content, :questionnaire )
+    params.require(:board).permit(:user_id, :title, :content, :questionnaire)
   end
 end
