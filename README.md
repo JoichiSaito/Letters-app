@@ -44,7 +44,6 @@
 ・フロントエンド言語・ライブラリ (JavaScript、jQuery)  
 ・CSSフレームワーク（Bootstrap4）  
 ・インフラ (AWS EC2)  
-・ドメイン取得 (AWS Route53)  
 ・データベース (MySQL)  
 ・テスト （RSpec、Capybara、Factory_Bot）  
 ・コードチェック （Bullet、RuboCop）  
