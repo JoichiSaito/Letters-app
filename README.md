@@ -64,4 +64,4 @@
 メールアドレス：rails@taro.com  
 パスワード：railstaro  
   
-URL:http://3.115.206.22/  
+http://3.115.206.22/  
