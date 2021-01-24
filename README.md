@@ -63,4 +63,4 @@
 メールアドレス：rails@taro.com  
 パスワード：railstaro  
   
-http://3.115.206.22/  
+http://forschool.letters-app.com/  
