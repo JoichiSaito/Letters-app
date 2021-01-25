@@ -65,4 +65,4 @@
 メールアドレス：rails@taro.com  
 パスワード：railstaro  
   
-[link](https://forschool.letters-app.com/){:target="_blank"}  
+https://forschool.letters-app.com/ 
