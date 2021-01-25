@@ -43,7 +43,7 @@
 ・バックエンドFW (Ruby on Rails 5.2.3)  
 ・フロントエンド言語・ライブラリ (JavaScript、jQuery)  
 ・CSSフレームワーク（Bootstrap4）  
-・インフラ (AWS EC2) 
+・インフラ (AWS EC2)  
 ・独自ドメイン取得 (AWS Route53)  
 ・SSL通信によるhttps化 (AWS ACM、ELB)  
 ・データベース (MySQL)  
