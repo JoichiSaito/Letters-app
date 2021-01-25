@@ -45,6 +45,7 @@
 ・CSSフレームワーク（Bootstrap4）  
 ・インフラ (AWS EC2) 
 ・独自ドメイン取得 (AWS Route53)  
+・SSL通信によるhttps化 (AWS ACM、ELB)  
 ・データベース (MySQL)  
 ・テスト （RSpec、Capybara、Factory_Bot）  
 ・コードチェック （Bullet、RuboCop）  
@@ -64,4 +65,4 @@
 メールアドレス：rails@taro.com  
 パスワード：railstaro  
   
-http://forschool.letters-app.com/  
+https://forschool.letters-app.com/  
