@@ -40,7 +40,7 @@
 ## 使用技術　
 ・開発環境 (Docker)  
 ・バックエンド言語 (Ruby 2.6.3)  
-・バックエンドFW (Ruby on Rails 5.2.3)  
+・バックエンドFW (Ruby on Rails 5.2.4)  
 ・フロントエンド言語・ライブラリ (JavaScript、jQuery)  
 ・CSSフレームワーク（Bootstrap4）  
 ・インフラ (AWS EC2)  
