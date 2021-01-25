@@ -45,7 +45,7 @@
 ・CSSフレームワーク（Bootstrap4）  
 ・インフラ (AWS EC2)  
 ・独自ドメイン取得 (AWS Route53)  
-・SSL通信によるHTTPS化 (AWS ACM、ELB)  
+・HTTPS化 (AWS ACM、ELB)  
 ・データベース (MySQL)  
 ・テスト （RSpec、Capybara、Factory_Bot）  
 ・コードチェック （Bullet、RuboCop）  
