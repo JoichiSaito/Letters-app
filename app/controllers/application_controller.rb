@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     @user = User.find_by(email:'rails@taro.com')
     if @user == @current_user
       flash[:danger] = 'ゲストユーザーはこの操作はできません'
-      redirect_to root_path
+      redirect_to mypage_path
     end
   end
 end
