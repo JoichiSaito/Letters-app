@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_target_user, only: %i[show edit update destroy follows followers]
   before_action :authenticate_user, only: %i[show edit update destroy follows followers]
   before_action :ensure_correct_user, only: %i[edit update destroy]
+  before_action :guest_user, only: %i[edit]
 
   def new
     @user = User.new(flash[:user])
