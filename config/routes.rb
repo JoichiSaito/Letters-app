@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#index'
+  root 'home#index'
 
   get 'mypage', to: 'sessions#me'
   get 'login', to: 'sessions#new'
