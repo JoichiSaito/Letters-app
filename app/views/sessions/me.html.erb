@@ -3,6 +3,10 @@
     <div class="alert alert-primary"><%= flash[:notice] %></div>
   <% end %>
 
+  <% if flash[:danger] %>
+    <div class="alert alert-danger"><%= flash[:danger] %></div>
+  <% end %>
+
   <h3>マイページ</h3>
 
   <div class="userlinks clearfix">

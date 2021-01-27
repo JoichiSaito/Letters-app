@@ -1,4 +1,8 @@
 <div class="container text-center">
+  <% if flash[:notice] %>
+    <div class="alert alert-danger"><%= flash[:notice] %></div>
+  <% end %>
+  
   <h2>大切なお知らせ、もう見逃さない</h2>
   
   <div class="guestlogin">

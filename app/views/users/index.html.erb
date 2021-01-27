@@ -1,10 +1,6 @@
 <div class="container">
   <h3>ユーザー検索</h3>
 
-  <% if flash[:notice] %>
-    <div class="alert alert-danger"><%= flash[:notice] %></div>
-  <% end %>
-
   <div class="searchform">
     <%= search_form_for @q do |f| %>
       <%= f.label :name, "ユーザー名" %>
