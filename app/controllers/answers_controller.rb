@@ -1,4 +1,6 @@
 class AnswersController < ApplicationController
+  before_action :authenticate_user
+
   def create
     request = @current_user.passive_requests.find_by(refollowing_id: params[:user_id])
     request.destroy

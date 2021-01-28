@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :authenticate_user, only: %i[me destroy]
+  
   def me
     @board = @current_user.boards.order('id DESC')
     @boards = @board.page(params[:page])

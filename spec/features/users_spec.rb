@@ -1,14 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature "Users", type: :feature do
-  feature "Index controll" do
-    scenario "ユーザー一覧ページ" do
-      visit users_path
-      expect(page).to have_http_status :ok
-      expect(page).to have_text("ユーザー検索")
-    end
-  end
-
   feature "Visit" do
     scenario "新規登録ページ" do
       visit new_user_path
@@ -86,6 +78,26 @@ RSpec.feature "Users", type: :feature do
       expect(current_path).to eq mypage_path
       expect(page).to have_text("マイページ")
       expect(page).to have_text("Judge")
+    end
+  end
+
+  feature "Login as guestuser" do
+    scenario "ゲストユーザー" do
+      visit root_path
+      click_link "新規登録"
+      
+      fill_in "ユーザー名", with: "Rails太郎"
+      fill_in "メールアドレス", with: "rails@taro.com"
+      fill_in "パスワード", with: "railstaro"
+      fill_in "パスワード（確認）", with: "railstaro"
+      click_button "保存"
+
+      expect(current_path).to eq mypage_path
+      expect(page).to have_text("Rails太郎")
+
+      click_link "編集"
+      expect(current_path).to eq root_path
+      expect(page).to have_text("権限がありません")
     end
   end
 end
