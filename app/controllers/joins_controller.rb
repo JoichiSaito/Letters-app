@@ -3,7 +3,7 @@ class JoinsController < ApplicationController
   before_action :set_join
 
   def show
-    @joins = @board.joins.includes(:user).page(params[:page])
+    @joins = @board.joins.includes([:user]).page(params[:page])
   end
 
   def create
