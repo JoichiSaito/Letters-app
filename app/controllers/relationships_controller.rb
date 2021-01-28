@@ -1,7 +1,7 @@
 class RelationshipsController < ApplicationController
   before_action :set_target_user, only: %i[create destroy]
   before_action :authenticate_user
-  before_action :guest_user, only: %i[destroy]
+  before_action :ensure_correct_user, only: %i[destroy]
 
   def create
     follow = @current_user.active_relationships.build(follower_id: params[:user_id])
@@ -16,6 +16,14 @@ class RelationshipsController < ApplicationController
   end
 
   private
+
+  def ensure_correct_user
+    @user = User.find_by(id: params[:user_id])
+    if @user.id != @current_user.id || @user.email == 'rails@taro.com'
+      flash[:notice] = '権限がありません'
+      redirect_to root_path
+    end
+  end
 
   def set_target_user
     @user = User.find(params[:user_id])

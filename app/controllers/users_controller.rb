@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_target_user, only: %i[show edit update destroy follows followers]
   before_action :authenticate_user, only: %i[show edit update destroy follows followers]
-  before_action :ensure_correct_user, only: %i[edit update destroy]
-  before_action :guest_user, only: %i[edit]
+  before_action :ensure_correct_user, only: %i[edit update]
 
   def new
     @user = User.new(flash[:user])
@@ -45,11 +44,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-    @user.destroy
-    redirect_to root_path, flash: { notice: "「#{@user.name}」のデータが削除されました" }
-  end
-
   def follows
     @users = @user.followings.page(params[:page])
   end
@@ -62,7 +56,7 @@ class UsersController < ApplicationController
 
   def ensure_correct_user
     @user = User.find_by(id: params[:id])
-    if @user.id != @current_user.id
+    if @user.id != @current_user.id || @user.email == 'rails@taro.com'
       flash[:notice] = '権限がありません'
       redirect_to root_path
     end
