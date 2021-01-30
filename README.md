@@ -58,13 +58,11 @@
 ・パスワードハッシュ化 (bcrypt)  
 
 
-## URL
-学校側のサンプルアカウント(学校の名前で登録しています)  
-メールアドレス：rails@example.com  
-パスワード：railsshogakko  
-  
-保護者側のサンプルアカウント(児童の名前で登録しています)  
+## URL  
+ゲストユーザー(保護者側のサンプルアカウント)  
 メールアドレス：rails@taro.com  
 パスワード：railstaro  
   
-https://forschool.letters-app.com/ 
+https://www.letters-app.com/  
+  
+トップページのリンク「ゲストユーザーとしてログインする」からログインページへアクセスできます。  
