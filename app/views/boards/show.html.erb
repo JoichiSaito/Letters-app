@@ -30,8 +30,8 @@
   </div>
 
   <% if @board.questionnaire == true %>
-    <div class="text-center">
-      <%= link_to 'アンケート結果', board_joins_path(@board), class: 'btn btn-primary'%>
+    <div class="joiner text-center">
+      <%= link_to '参加者一覧', board_joins_path(@board), class: 'btn btn-primary'%>
     </div>
   <% end %>
 </div>
