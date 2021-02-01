@@ -19,7 +19,7 @@ class RelationshipsController < ApplicationController
 
   def ensure_correct_user
     @user = User.find_by(id: params[:user_id])
-    if @user.id != @current_user.id || @user.email == 'rails@taro.com'
+    if @user.id != @current_user.id || @current_user.email == 'rails@taro.com'
       flash[:notice] = '権限がありません'
       redirect_to root_path
     end
