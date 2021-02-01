@@ -4,40 +4,8 @@
   <% end %>
 
   <% if @user.followed_by?(@current_user) || @user.id == @current_user.id %>
-    <div class="usershow clearfix">
-      <h3><%= @user.name %></h3>
-  
-      <% if @current_user != @user %>
-        <% if @user.followed_by?(@current_user) %>
-          <div class="float-right">
-            <%= link_to "フォロー解除", user_relationships_path(@user.id), class: 'btn btn-danger', method: :delete, data: { confirm: 'フォロー解除してもよろしいですか？' }, remote: true %>
-          </div>
-        <% else %>
-          <div class="float-right">
-            <%= link_to "フォローする", user_relationships_path(@user.id), class: 'btn btn-info', method: :post, remote: true %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-    
-    <h4>お知らせ一覧</h4>
-    <table class="table">
-      <tr>
-        <th>タイトル</th>
-        <th>作成日時</th>
-        <th>更新日時</th>
-      </tr>
 
-      <% @boards.each do |board| %>
-        <tr>
-          <td><%= link_to board.title, board %></td>
-          <td><%= board.created_at.to_s(:datetime_jp) %></td>
-          <td><%= board.updated_at.to_s(:datetime_jp) %></td>
-        </tr>
-      <% end %>
-    </table>
-
-    <%= paginate @boards %>
+    <%= render partial: 'show' %>
 
   <% elsif @user.private == true %>
 
@@ -59,39 +27,8 @@
     </div>
   
   <% else %>
-    <div class="usershow clearfix">
-      <h3><%= @user.name %></h3>
+    
+    <%= render partial: 'show' %>
 
-      <% if @current_user != @user %>
-        <% if @user.followed_by?(@current_user) %>
-          <div class="float-right">
-            <%=link_to "フォロー解除", user_relationships_path(@user.id), class: 'btn btn-danger', method: :delete, data: { confirm: 'フォロー解除してもよろしいですか？' }, remote: true %>
-          </div>
-        <% else %>
-          <div class="float-right">
-            <%=link_to "フォローする", user_relationships_path(@user.id), class: 'btn btn-info', method: :post, remote: true %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-
-    <h4>お知らせ一覧</h4>
-    <table class="table">
-      <tr>
-        <th>タイトル</th>
-        <th>作成日時</th>
-        <th>更新日時</th>
-      </tr>
-
-      <% @boards.each do |board| %>
-        <tr>
-          <td><%= link_to board.title, board %></td>
-          <td><%= board.created_at.to_s(:datetime_jp) %></td>
-          <td><%= board.updated_at.to_s(:datetime_jp) %></td>
-        </tr>
-      <% end %>
-    </table>
-
-    <%= paginate @boards %>
   <% end %>
 </div>
