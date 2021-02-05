@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @q = User.where('name like ?','%学校%').ransack(params[:q])
+    @q = User.where('name like ?','%学校%').order('id DESC').ransack(params[:q])
     @users = @q.result(distinct: true).page(params[:page])
   end
 
