@@ -9,13 +9,11 @@ class RequestsController < ApplicationController
   def create
     request = @current_user.active_requests.build(refollower_id: params[:user_id])
     request.save
-    redirect_to @user
   end
 
   def destroy
     request = @current_user.active_requests.find_by(refollower_id: params[:user_id])
     request.destroy
-    redirect_to @user
   end
 
   private

@@ -13,17 +13,9 @@
       <h3><%= @user.name %></h3>
       <p>このユーザーは非公開です。フォローリクエストを送りましょう。</p>
       
-      <% if @current_user != @user %>
-        <% if @user.requested_by?(@current_user) %>
-          <div class="float-right">
-            <%= link_to "リクエスト取消", user_requests_path(@user.id), class: 'btn btn-danger', method: :delete, data: { confirm: 'リクエストを取り消してもよろしいですか？' }, remote: true %>
-          </div>
-        <% else %>
-          <div class="float-right">
-            <%= link_to "リクエスト送信", user_requests_path(@user.id), class: 'btn btn-info', method: :post, remote: true %>
-          </div>
-        <% end %>
-      <% end %>
+      <div id="requests_buttons_<%= @user.id %>" class="float-right">
+        <%= render partial: 'requests/request', locals: { user: @user} %>
+      </div>
     </div>
   
   <% else %>
