@@ -1,17 +1,9 @@
 <div class="usershow clearfix">
   <h3><%= @user.name %></h3>
 
-  <% if @current_user != @user %>
-    <% if @user.followed_by?(@current_user) %>
-      <div class="float-right">
-        <%= link_to "フォロー解除", user_relationships_path(@user.id), class: 'btn btn-danger', method: :delete, data: { confirm: 'フォロー解除してもよろしいですか？' }, remote: true %>
-      </div>
-    <% else %>
-      <div class="float-right">
-        <%= link_to "フォローする", user_relationships_path(@user.id), class: 'btn btn-info', method: :post, remote: true %>
-      </div>
-    <% end %>
-  <% end %>
+  <div id="relationships_buttons_<%= @user.id %>">
+    <%= render partial: 'relationships/relationship', locals: {user: @user} %>
+  </div>
 </div>
     
 <h4>お知らせ一覧</h4>
