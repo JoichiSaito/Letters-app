@@ -21,10 +21,10 @@
 ⑨ページネーション機能  
 
 ### ER図  
-2021-02-07 18.54のイメージ.jpg  
+https://user-images.githubusercontent.com/72738659/107143325-d3c72300-6977-11eb-866c-a8d4038cacac.jpg  
   
 ### ビューの相関図  
-2021-02-07 19.01のイメージ.jpg  
+https://user-images.githubusercontent.com/72738659/107143314-c3af4380-6977-11eb-81e3-9d1c21126c5f.jpg    
   
 ### 工夫したところ
 ①データベースへの負担を軽減するために以下の点に留意してアプリを実装したところ  
