@@ -24,21 +24,5 @@
     </div>
   </div>
 
-  <h5>お知らせ一覧</h5>
-  <table class="table">
-    <tr>
-      <th>タイトル</th>
-      <th>作成日時</th>
-      <th>更新日時</th>
-    </tr>
-    <% @boards.each do |board| %>
-    <tr>
-      <td><%= link_to board.title, board %></td>
-      <td><%= board.created_at.to_s(:datetime_jp) %></td>
-      <td><%= board.updated_at.to_s(:datetime_jp) %></td>
-    </tr>
-    <% end %>
-  </table>
-
-  <%= paginate @boards %>
+  <%= render partial: 'users/boards_index', locals: {board: @boards} %>
 </div>
