@@ -10,6 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <title>Letters</title>
@@ -18,8 +19,10 @@
   <body>
     <nav class="header navbar bg-success navbar-dark navbar-expand-md sticky-top" >
       <% if @current_user %>
+        <i class="text-white fas fa-envelope mr-2"></i>
         <%= link_to('Letters' , mypage_path, class: 'navbar-brand' )%>
       <% else %>  
+        <i class="text-white fas fa-envelope mr-2"></i>
         <%= link_to('Letters' , root_path, class: 'navbar-brand' )%>
       <% end %>
       <button class="navbar-toggler bg-success" data-toggle="collapse" data-target="#navbarContents">
