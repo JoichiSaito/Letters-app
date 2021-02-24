@@ -62,13 +62,3 @@
 ・検索 （ransack）  
 ・多言語化対応 (i18n)   
 ・パスワードハッシュ化 (bcrypt)  
-
-
-## URL  
-ゲストユーザー(保護者側のサンプルアカウント)  
-メールアドレス：rails@taro.com  
-パスワード：railstaro  
-  
-https://forschool.letters-app.com/  
-  
-トップページのリンク「ゲストユーザーとしてログインする」からログインページへアクセスできます。  
